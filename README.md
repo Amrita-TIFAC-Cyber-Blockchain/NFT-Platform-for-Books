@@ -22,13 +22,13 @@
   - <b>Independent Artist</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Artist_1.png" alt="Artist" width="500" height="300">
+  <img src="Assets/Usecases/Artist_Fanart.png" alt="Artist" width="500" height="300">
   </p>
   
   - <b>Figurine Artist</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Artist_2.png" alt="Artist" width="500" height="450">
+  <img src="Assets/Usecases/Artist_Figurine.png" alt="Artist" width="500" height="450">
   </p>
  
 ## Demo
