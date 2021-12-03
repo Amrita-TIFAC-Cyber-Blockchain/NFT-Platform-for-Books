@@ -10,7 +10,7 @@
   - <b>Author</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Authors.png" alt="Authors" width="500" height="400">
+  <img src="Assets/Usecases/Author.png" alt="Authors" width="500" height="400">
   </p>
   
   - <b>Publisher</b>
