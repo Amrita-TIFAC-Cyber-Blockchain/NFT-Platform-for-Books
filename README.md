@@ -2,6 +2,22 @@
 
 ## Introduction
 
+#### Book Cover and Limited Edition
+  <p align="center">
+  <img src="Assets/Images/Throneofglass_original.jpg" alt="Authors" width="190">
+  <img src="Assets/Images/Throneofglass_edition3.jpg" alt="Authors" width="380">
+  </p>
+  
+#### Figurines
+  <p align="center">
+  <img src="Assets/Images/Harrypotter_Figurine1.png" alt="Authors" width="220">
+  <img src="Assets/Images/Harrypotter_Figurine2.png" alt="Authors" width="170">
+  <img src="Assets/Images/Harrypotter_Figurine3.png" alt="Authors" width="170">
+  </p>
+  
+  
+  
+
 ## Abstract 
 
 ## Proposed Architecture 
@@ -10,25 +26,25 @@
   - <b>Author</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Author.png" alt="Authors" width="500" height="400">
+  <img src="Assets/Usecases/Author.png" alt="Authors" width="800">
   </p>
   
   - <b>Publisher</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Publisher.png" alt="Publisher" width="500" height="400">
+  <img src="Assets/Usecases/Publisher.png" alt="Publisher" width="800">
   </p>
   
   - <b>Independent Artist</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Artist_Fanart.png" alt="Artist" width="500" height="300">
+  <img src="Assets/Usecases/Artist_Fanart.png" alt="Artist" width="800">
   </p>
   
   - <b>Figurine Artist</b>
   
   <p align="center">
-  <img src="Assets/Usecases/Artist_Figurine.png" alt="Artist" width="500" height="450">
+  <img src="Assets/Usecases/Artist_Figurine.png" alt="Artist" width="800">
   </p>
  
 ## Demo
