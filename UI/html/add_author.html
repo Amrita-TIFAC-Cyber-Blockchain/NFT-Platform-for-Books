@@ -1,0 +1,426 @@
+<!-- 
+Author        : Tejasree Thummala
+Referred from : Ramaguru Radhakrishnan
+Date Created  : Dec - 2021
+Date Updated  : 25.12.2021
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NFT Platform for Books</title>
+    <meta charset="UTF-8"/>
+	<style>
+	body{        
+        padding-top: 50px;
+        padding-bottom: 30px;
+    }
+	.container{
+        width: 80%;
+        margin: 0 auto; 
+    }
+	.fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #868bf7;
+        padding: 10px 0;
+        color:#160075;
+    }
+	.fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    } 
+	.container p{
+		padding-top: 90px;
+        line-height: 20px;
+    }
+	
+	</style>
+</head>
+<body>
+	<div class="fixed-header">
+		<div class="container">
+		<center>
+			<h2> NFT Platform for Books </h2>
+		</center>
+		</div>
+	</div>
+        
+	<div class="container">	
+	<p>
+		<b><u> NFT Platform for Books</u></b><br/><br/>
+		<form>
+			<table>
+			 <tr><td> AuthName : </td> <td> <input type="text" id="AuthName" name="AuthName"> </td></tr>
+			 <tr><td> AuthNID : </td> <td> <input type="text" id="AuthNID" name="AuthNID"> </td></tr>
+			 <tr><td> AuthAddr : </td> <td> <input type="text" id="AuthAddr" name="AuthAddr"> </td></tr>
+			 <tr><td> AuthCountry: </td> <td> <input type="text" id="AuthCountry" name="AuthCountry"> </td></tr>
+			 <tr><td> AuthWalletAddr : </td> <td> <input type="text" id="AuthWalletAddr" name="AuthWalletAddr"> </td></tr>
+			 <tr><td> Genre : </td> <td> <input type="text" id="Genre" name="Genre"> </td></tr>
+			 <tr><td> AuthRating : </td> <td> <input type="text" id="AuthRating" name="AuthRating"> </td></tr>
+			 <tr><td> sibid1 : </td> <td> <input type="text" id="sibid1" name="sibid1"> </td></tr>
+			 <tr><td> bartid1 : </td> <td> <input type="text" id="bartid1" name="bartid1"> </td></tr>
+			 <tr><td> fameid1 : </td> <td> <input type="text" id="fameid1" name="fameid1"> </td></tr> 
+			 <tr><td><input type="button" onclick="addauthor()" value="Add Author"></td></tr>
+			</table>
+			
+			<h4> Transaction ID: <a href="https://ropsten.etherscan.io/"><div id="result"></div></a> </h4>
+			
+		</form>
+		<br/>
+		<hr>
+		<form>
+			<table>
+			 <tr><td> AuthName : </td> <td> <input type="text" id="AuthName" name="AuthName"> </td></tr>
+			 <tr><td><input type="button" onclick="retrieveauthor()" value="Get Author"></td></tr>
+			 <h4> Author Rating <div id="authr"></div> </h4>
+
+			</table>
+		
+		</form>
+		<br/>
+	</p>	
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha3/0.8.0/sha3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+			
+			}
+			// Legacy DApp browsers
+			else if (window.web3) {
+				//window.web3 = new Web3(web3.currentProvider);
+				window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/cbd9dc11b30147e9a2cc974be655ef7c")); 
+				}
+			// Non-DApp browsers
+			else {
+				console.log('Non-Ethereum browser detected. Please install MetaMask');
+				}
+			
+			});
+			
+			// Smart Contract ABI - Application Binary Interfaces
+			var abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_ArtiName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_ArtiNID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_ArtiAddr",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_ArtiCountry",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_ArtiWalletAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_ArtType",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_ArtiRating",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_bartid3",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_fameid3",
+				"type": "uint256"
+			}
+		],
+		"name": "addartist",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_AuthName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_AuthNID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_AuthAddr",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_AuthCountry",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_AuthWalletAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_Genre",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_AuthRating",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_sibid1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_bartid1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_fameid1",
+				"type": "uint256"
+			}
+		],
+		"name": "addauthor",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_PublName",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_PublRegID",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_PublAddr",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_PublCountry",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "_PublWalletAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "uint8",
+				"name": "_PublRating",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_sibid2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_bartid2",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_fameid2",
+				"type": "uint256"
+			}
+		],
+		"name": "addpublisher",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_ArtiName",
+				"type": "string"
+			}
+		],
+		"name": "retrieveartist",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_AuthName",
+				"type": "string"
+			}
+		],
+		"name": "retrieveauthor",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_PublName",
+				"type": "string"
+			}
+		],
+		"name": "retrievepublisher",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+			//Smart Contract Address
+			var contractaddress = '0xaf8ebe545d1f7510f69b4c0178e933c41649072c';
+
+			// Function to call the "Anonymize Day" in Deployed Smart Contract
+			function addauthor(){
+					
+				console.log("addauthor");
+						
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '3000000000', gas: '8000000'});
+
+					//get the values from the HTML to JS using getElementById
+					AuthName = document.getElementById("AuthName").value;
+					AuthNID = document.getElementById("AuthNID").value;
+					AuthAddr = document.getElementById("AuthAddr").value;
+					AuthCountry = document.getElementById("AuthCountry").value;
+					AuthWalletAddr = document.getElementById("AuthWalletAddr").value;
+					Genre = document.getElementById("Genre").value;
+					AuthRating = document.getElementById("AuthRating").value;
+					sibid1 = document.getElementById("sibid1").value;
+					bartid1 = document.getElementById("bartid1").value;
+					fameid1 = document.getElementById("fameid1").value;
+
+	
+				//call the "storeDateofBirth" function
+				var result = myContract.methods.addauthor(AuthName, AuthNID, AuthAddr, AuthCountry, AuthWalletAddr, Genre, AuthRating, sibid1, bartid1, fameid1 ).send(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("result").innerHTML = result; }
+				
+				});
+			}
+			
+			// Function to call the "Verify Identity" in Deployed Smart Contract
+			function retrieveauthor() {
+					
+				console.log("retrieveauthor");
+						
+				//Instantiate and connect to contract address via ABI
+				var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '3000000000', gas: '8000000'});
+								
+			
+				
+				//call the "view certificate" function
+				var result = myContract.methods.retrieveauthor(AuthName).call(function (err, result) {
+				
+				if (err) { console.log(err); }
+				if (result) { document.getElementById("authr").innerHTML = result[1]; }
+				
+				});
+				
+			}
+						
+    </script>
+	
+	<div class="fixed-footer">
+		<div class="container">
+			<center> <h5> Copyright &copy; 2021-2022 <br/> Tejasree T, Ramaguru R, Amrita Vishwa Vidyapeetham, Coimbatore, Tamil Nadu, India </h5> </center>
+		</div>
+	</div>
+
+</body>
+</html>
+
