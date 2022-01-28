@@ -1,5 +1,5 @@
 # NFT-Platform-for-Books
-![](https://img.shields.io/badge/BlockchainCourse-20CY712-green) ![](https://img.shields.io/badge/AmritaBlockchain-WIP-orange) ![](https://img.shields.io/badge/Publication-WIP-orange)
+![](https://img.shields.io/badge/Batch-20CYS-green) ![](https://img.shields.io/badge/BlockchainCourse-20CY712-green) ![](https://img.shields.io/badge/Focus-NFT-yellow) ![](https://img.shields.io/badge/AmritaBlockchain-WIP-orange) ![](https://img.shields.io/badge/Publication-WIP-orange)
 
 ## Introduction
 
@@ -16,9 +16,6 @@
   <img src="Assets/Images/Harrypotter_Figurine3.png" alt="Authors" width="170">
   </p>
   
-  
-  
-
 ## Abstract 
 
 ## Proposed Architecture 
@@ -52,7 +49,7 @@
 [Click here]() to access the webpage.
 
 ## Acknowledgement
-We would like to acknowldge the support provided by TIFAC-CORE in Cyber Security, Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Coimbatore, India in carrying out this work as part of "21CY712 - Blockchain Technology" Course. 
+We would like to acknowldge the support provided by TIFAC-CORE in Cyber Security, Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Coimbatore, India in carrying out this work as part of "20CY712 - Blockchain Technology" Course. 
 
 ## References
 
