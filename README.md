@@ -1,5 +1,5 @@
-# NFT-Platform-for-Books
-![](https://img.shields.io/badge/Batch-20CYS-green) ![](https://img.shields.io/badge/BlockchainCourse-20CY712-green) ![](https://img.shields.io/badge/Focus-NFT-yellow) ![](https://img.shields.io/badge/AmritaBlockchain-WIP-orange) ![](https://img.shields.io/badge/Publication-WIP-orange)
+# NFT-Platform-for-Books ![](https://img.shields.io/badge/-On_Hold-red)
+![](https://img.shields.io/badge/Batch-20CYS-green) ![](https://img.shields.io/badge/BlockchainCourse-20CY712-green) ![](https://img.shields.io/badge/Focus-NFT-yellow) ![](https://img.shields.io/badge/AmritaBlockchain-WIP-orange) ![](https://img.shields.io/badge/Publication-On_Hold-red)
 
 ## Introduction
 
@@ -49,12 +49,10 @@
 [Click here]() to access the webpage.
 
 ## Acknowledgement
-We would like to acknowldge the support provided by TIFAC-CORE in Cyber Security, Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Coimbatore, India in carrying out this work as part of "20CY712 - Blockchain Technology" Course. 
+We would like to acknowldge the support provided by **TIFAC-CORE in Cyber Security**, Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Coimbatore, India in carrying out this work as part of "**20CY712 - Blockchain Technology**" Course. 
 
 ## References
 
  - Ramaguru R, Minu M. Blockchain Terminologies. NamChain Open Initiative Research Lab (2021). https://github.com/NamChain-Open-Initiative-Research-Lab/Blockchain-Terminologies
 
-## Publication
-TBD
 
